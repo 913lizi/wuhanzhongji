@@ -25,7 +25,12 @@ Route::group(['middleware'=> ['auth'],'namespace'=>'Admin','prefix'=>'admin'],fu
 
     // 后台首页
     Route::get('/','IndexController@index');
-//    Route::get('admin/dashboard', 'DashboardController@index');
+    //网站设置
+    Route::get('web/settings','SettingsController@index');
+    Route::post('web/settings/post','SettingsController@create');
+    //网站banner设置
+    Route::get('web/banner','BannerController@index');
+
     Route::resource('dashboard','DashboardController');
 
     Route::resource('user','UserController');

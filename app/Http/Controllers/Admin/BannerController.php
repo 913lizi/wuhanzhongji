@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Middleware\EncryptCookies;
+use App\Services\BannerServices;
+use Illuminate\Http\Request;
+
+class BannerController extends Controller
+{
+    protected $service;
+    public function __construct(){
+        $this->service  = new BannerServices();
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     * 显示banner 的列表和读取数据
+     */
+    public function  index(Request $request){
+
+        if ($request->wantsJson()){
+            return $this->service->getIndex($request);
+
+        }
+        return view('admin.Banner.index');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * banner 上传页面
+     */
+
+    public function create()
+    {
+        return view('admin.Banner.create');
+
+    }
+    public function store(Request $request)
+    {
+        $this->service->store($request);
+        return redirect('admin/web/banner');
+
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     * banner 文件上传
+     */
+    public function upload(Request $request){
+
+        return [
+            'code'=>200,
+            'img'=>saveImageResource($request->file('file'))
+        ];
+
+
+    }
+
+}

@@ -30,6 +30,9 @@ Route::group(['middleware'=> ['auth'],'namespace'=>'Admin','prefix'=>'admin'],fu
     Route::post('web/settings/post','SettingsController@create');
     //网站banner设置
     Route::get('web/banner','BannerController@index');
+    Route::get('web/banner/create','BannerController@create');
+    Route::post('web/banner/upload','BannerController@upload');
+    Route::post('web/banner/store','BannerController@store');
 
     Route::resource('dashboard','DashboardController');
 

@@ -29,10 +29,13 @@ class BannerServices
         ];
 
     }
+
+    /**
+     * @param Request $request
+     * @return bool
+     * 创建banner
+     */
     public function store(Request $request){
-//        echo "<pre>";
-//        print_r($request->toArray());
-//        die();
 
         $this->model->create([
             'title' => $request->title,
@@ -43,6 +46,41 @@ class BannerServices
 
         ]);
         return true;
+    }
+
+    /**'
+     * @param $id
+     * @return bool
+     * @throws \Exception
+     * 删除banner
+     */
+    public function del($id)
+    {
+        $this->model->delete($id);
+        return true;
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
+     * 获取被修改的数据
+     */
+    public function edit($id)
+    {
+        $data = $this->model->with('webtype')->find($id);
+        return $data;
+    }
+
+    public function bannerUpdate(Request $request)
+    {
+        $this->model->where('id',$request->id)->update([
+            'title'=>$request->title,
+            'type'=>$request->type,
+            'sort'=>$request->sort,
+            'url'=>$request->url,
+            'img'=>$request->banner_img,
+        ]);
+
     }
 
 

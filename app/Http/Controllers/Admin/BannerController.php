@@ -38,12 +38,40 @@ class BannerController extends Controller
         return view('admin.Banner.create');
 
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * 添加操作
+     */
     public function store(Request $request)
     {
         $this->service->store($request);
         return redirect('admin/web/banner');
 
     }
+    public function del($id)
+    {
+        $this->service->del($id);
+        return redirect('admin/web/banner');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 获取被修改的数据
+     */
+    public function edit($id)
+    {
+        $res= $this->service->edit($id);
+        return view('admin.Banner.update',compact('res'));
+    }
+    public function update(Request $request)
+    {
+        $this->service->bannerUpdate($request);
+        return redirect('admin/web/banner');
+    }
+
 
     /**
      * @param Request $request

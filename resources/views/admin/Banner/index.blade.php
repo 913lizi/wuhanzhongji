@@ -92,8 +92,8 @@
                         </script>
                         <script type="text/html" id="bar">
                             <div class="btn-group">
-                                <button type="button" class="layui-btn layui-btn-sm">修改</button>
-                                <button type="button" class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
+                                <button lay-event="edit" type="button" class="layui-btn layui-btn-sm">修改</button>
+                                <button lay-event="del" type="button" class="layui-btn layui-btn-danger layui-btn-sm">删除</button>
 
 
                             </div>
@@ -172,7 +172,9 @@
             table.on('tool(areaTable)', function(data){
                 var id = data.data.id;
                 if(data.event === 'edit'){
-                    window.location.href='/area/'+id+'/edit';
+                    window.location.href='/admin/web/banner/edit/'+id;
+                }else if (data.event === 'del'){
+                    window.location.href='/admin/web/banner/del/'+id;
                 }
                 if(data.event === 'qrcode'){
                     layer.open({
@@ -184,6 +186,8 @@
                     });
                 }
             });
+
+
             //监听筛选搜索
             table.on('toolbar(areaTable)', function(data){
                 if(data.event === 'filter'){

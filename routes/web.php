@@ -33,6 +33,9 @@ Route::group(['middleware'=> ['auth'],'namespace'=>'Admin','prefix'=>'admin'],fu
     Route::get('web/banner/create','BannerController@create');
     Route::post('web/banner/upload','BannerController@upload');
     Route::post('web/banner/store','BannerController@store');
+    Route::get('web/banner/del/{id}','BannerController@del');
+    Route::get('web/banner/edit/{id}','BannerController@edit');
+    Route::post('web/banner/update','BannerController@update');
 
     Route::resource('dashboard','DashboardController');
 

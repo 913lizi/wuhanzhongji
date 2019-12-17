@@ -72,14 +72,7 @@
                                         <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add New
                                     </button>
 
-                                    <button type="button" class="btn btn-primary btn-sm m-r-5 delete" data-type="getid">
-                                        <i class="fa fa-trash" aria-hidden="true"></i> Delete
-                                        <form  name="destroy_form" method="POST" action="{{url('area/destroy')}}">
-                                            @csrf
-                                            <input type="hidden" name="delete_id" id="delete_id">
-                                            {{ method_field('DELETE') }}
-                                        </form>
-                                    </button>
+                                   
 
 
                                 <div class="input-group">

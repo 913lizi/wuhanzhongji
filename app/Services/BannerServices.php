@@ -80,6 +80,7 @@ class BannerServices
             'url'=>$request->url,
             'img'=>$request->banner_img,
         ]);
+        return true;
 
     }
 

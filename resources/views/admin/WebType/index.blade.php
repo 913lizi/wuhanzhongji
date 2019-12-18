@@ -68,7 +68,7 @@
                         <table id="areaTable" lay-filter="areaTable"></table>
                         <script type="text/html" id="toolbar">
                             <div class="form-inline">
-                                    <button type="button" onclick='window.location.href="{{ url('admin/web/banner/create') }}"' class="btn btn-primary btn-sm m-r-5">
+                                    <button type="button" onclick='window.location.href="{{ url('admin/web/webType/create') }}"' class="btn btn-primary btn-sm m-r-5">
                                         <i class="glyphicon glyphicon-plus" aria-hidden="true"></i> Add New
                                     </button>
                                 <div class="input-group">
@@ -133,20 +133,15 @@
                 defaultToolbar: ['filter'],
                 limits: [10, 15, 20, 30, 40, 50],
                 autoSort: false,
-                url: '/admin/web/banner',
+                url: '/admin/web/webType',
                 page: true,
                 cols: [[
                     {type:'numbers',fixed: 'left'},
                     {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left',type:'checkbox'},
                     {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'},
-                    {field: 'title', title: 'Banner 标题',align:'center'},
-                    {field: 'type', title: 'Banner 类型',align:'center'},
-                    {field: 'url', title: 'Bnner Url',align:'center'},
+                    {field: 'name', title: '类型名称',align:'center'},
+                    {field: 'web_type', title: '所属模块',align:'center'},
                     {field: 'sort', title: '排序',align:'center'},
-                    {field: 'img', title: '图片',align:'center',templet:function (data) {
-                        return '<img style="width:80px;height:25px" src="'+data.img+'">'
-                        }},
-
                     {fixed: 'right', title:'操作', toolbar: '#bar',width:150,align:'center'}
                 ]]
             });
@@ -161,9 +156,9 @@
             table.on('tool(areaTable)', function(data){
                 var id = data.data.id;
                 if(data.event === 'edit'){
-                    window.location.href='/admin/web/banner/edit/'+id;
+                    window.location.href='/admin/web/webType/edit/'+id;
                 }else if (data.event === 'del'){
-                    window.location.href='/admin/web/banner/del/'+id;
+                    window.location.href='/admin/web/webType/del/'+id;
                 }
                 if(data.event === 'qrcode'){
                     layer.open({

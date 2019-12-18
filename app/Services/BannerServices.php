@@ -56,7 +56,7 @@ class BannerServices
      */
     public function del($id)
     {
-        $this->model->delete($id);
+        $this->model->where('id',$id)->delete();
         return true;
     }
 

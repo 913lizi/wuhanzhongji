@@ -211,7 +211,7 @@
                     <ul class="sub-menu">
                         <li><a style="cursor:pointer" onclick="jump('{{ url('/admin/web/settings')}}')" href="javascript:void (0);">网站信息</a></li>
                         <li><a style="cursor:pointer" onclick="jump('{{ url('/admin/web/banner')}}')" href="javascript:void (0);">网站Banner</a></li>
-                        <li><a href="ui_tabs_accordions.html">Tabs & Accordions</a></li>
+                        <li><a style="cursor:pointer" onclick="jump('{{ url('/admin/web/webType')}}')" href="javascript:void (0);">网站类型设置</a></li>
                         <li><a href="ui_unlimited_tabs.html">Unlimited Nav Tabs</a></li>
                         <li><a href="ui_modal_notification.html">Modal & Notification</a></li>
                         <li><a href="ui_widget_boxes.html">Widget Boxes</a></li>

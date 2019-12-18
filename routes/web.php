@@ -36,6 +36,13 @@ Route::group(['middleware'=> ['auth'],'namespace'=>'Admin','prefix'=>'admin'],fu
     Route::get('web/banner/del/{id}','BannerController@del');
     Route::get('web/banner/edit/{id}','BannerController@edit');
     Route::post('web/banner/update','BannerController@update');
+    //网站类型管理
+    Route::get('web/webType','WebTypeController@index');
+    Route::get('web/webType/create','WebTypeController@create');
+    Route::post('web/webType/store','WebTypeController@store');
+    Route::get('web/webType/edit/{id}','WebTypeController@edit');
+    Route::post('web/webType/update','WebTypeController@update');
+    Route::get('web/webType/del/{id}','WebTypeController@del');
 
     Route::resource('dashboard','DashboardController');
 

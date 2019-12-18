@@ -110,7 +110,7 @@
   <component name="ProjectId" id="1V4JrRrWhBGxiKOaGWDAie8Z1cV" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cleaner_server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/WebType" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -120,10 +120,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\wuhanzhongji\app" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\laragon\www\wuhanzhongji\resources\views\admin\WebType" />
+      <recent name="D:\laragon\www\wuhanzhongji\resources\views\admin\Banner" />
       <recent name="D:\laragon\www\wuhanzhongji\app" />
     </key>
   </component>
@@ -157,6 +159,7 @@
       <updated>1576506631726</updated>
       <workItem from="1576506632916" duration="4698000" />
       <workItem from="1576584281392" duration="11737000" />
+      <workItem from="1576673190826" duration="5062000" />
     </task>
     <servers />
   </component>

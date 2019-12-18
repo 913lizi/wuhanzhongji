@@ -78,11 +78,9 @@
                                 <label class="col-md-3 control-label">类型</label>
                                 <div class="col-md-9">
                                     <select id="type" name="type" data-placeholder="Choose Type" class="form-control">
-                                        <option value="1">Others</option>
-                                        <option value="2">Toilet</option>
-                                        <option value="3">Car Park</option>
-                                        <option value="4">Common Area</option>
-                                        <option value="5">Dust Bin</option>
+                                        @foreach($result as $key=>$value)
+                                        <option value="{{$value->id}}">{{$value->name}}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>

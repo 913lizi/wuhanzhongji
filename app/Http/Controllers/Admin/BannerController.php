@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entities\WebType;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\EncryptCookies;
 use App\Services\BannerServices;
@@ -25,6 +26,7 @@ class BannerController extends Controller
             return $this->service->getIndex($request);
 
         }
+
         return view('admin.Banner.index');
     }
 
@@ -35,7 +37,8 @@ class BannerController extends Controller
 
     public function create()
     {
-        return view('admin.Banner.create');
+        $result= WebType::where('web_type',1)->get();
+        return view('admin.Banner.create',compact('result'));
 
     }
 
@@ -64,7 +67,8 @@ class BannerController extends Controller
     public function edit($id)
     {
         $res= $this->service->edit($id);
-        return view('admin.Banner.update',compact('res'));
+        $result= WebType::where('web_type',1)->get();
+        return view('admin.Banner.update',compact('res','result'));
     }
     public function update(Request $request)
     {

@@ -5,7 +5,7 @@
 <!--<![endif]-->
 <head>
     <meta charset="utf-8" />
-    <title>Color Admin | Banner添加</title>
+    <title>Color Admin | 标签类型修改</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -43,11 +43,11 @@
         <!-- begin breadcrumb -->
         <ol class="breadcrumb pull-right">
             <li><a href="{{ route('dashboard.index') }}">Home</a></li>
-            <li class="active">Banner 添加</li>
+            <li class="active">标签类型修改</li>
         </ol>
         <!-- end breadcrumb -->
         <!-- begin page-header -->
-        <h1 class="page-header">Banner 添加 <small>header small text goes here...</small></h1>
+        <h1 class="page-header">标签类型修改 <small>header small text goes here...</small></h1>
         <!-- end page-header -->
 
         <div class="row">
@@ -60,27 +60,31 @@
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                             <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                         </div>
-                        <h4 class="panel-title">Banner 添加</h4>
+                        <h4 class="panel-title">标签类型修改</h4>
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal col-md-8 col-md-offset-1" method="POST" action="{{url('/admin/web/banner/update')}}">
+                        <form class="form-horizontal col-md-8 col-md-offset-1" method="POST" action="{{url('/admin/web/webType/update')}}">
                             @csrf
-                            <input type="hidden" name="id" value="{{$res->id}}">
+                            <input type="hidden" name="id" value="{{$result->id}}">
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Banner 名称</label>
+                                <label class="col-md-3 control-label">标签名称</label>
                                 <div class="col-md-9">
-                                    <input name="title" type="text" class="form-control"  placeholder="Please Enter The Banner Name" value="{{$res->title}}" autocomplete="off"/>
+                                    <input name="name" type="text" class="form-control"  placeholder="Please Enter The Banner Name" value="{{$result->name}}" autocomplete="off"/>
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-3 control-label">类型</label>
+                                <label class="col-md-3 control-label">标签类型</label>
                                 <div class="col-md-9">
-                                    <select id="type" name="type" data-placeholder="Choose Type" class="form-control">
-                                        @foreach($result as $value)
-                                        <option value="{{$value->id}}">{{$value->name}}</option>
-                                            @endforeach
+                                    <select id="type" name="web_type" data-placeholder="Choose Type" class="form-control">
+                                        <option value="1" @if($result->web_type ==1) selected="" @endif>Banner</option>
+                                        <option value="2" @if($result->web_type ==2) selected="" @endif>产品展示</option>
+                                        <option value="3" @if($result->web_type ==3) selected="" @endif>产品原料</option>
+                                        <option value="4" @if($result->web_type ==4) selected="" @endif>优秀案例</option>
+                                        <option value="5" @if($result->web_type ==5) selected="" @endif>荣誉资质</option>
+                                        <option value="6" @if($result->web_type ==6) selected="" @endif>联系我们</option>
+                                        <option value="7" @if($result->web_type ==7) selected="" @endif>公司简介</option>
                                     </select>
 
                                 </div>
@@ -88,30 +92,12 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label">排序</label>
                                 <div class="col-md-9">
-                                    <input name="sort" type="text" class="form-control" placeholder="Please Enter The Banner Sort" value="{{$res->sort}}" autocomplete="off"/>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">链接</label>
-                                <div class="col-md-9">
-                                    <input name="url" type="text" class="form-control" placeholder="Please Enter The Banner Url" value="{{$res->url}}" autocomplete="off"/>
+                                    <input name="sort" type="text" class="form-control" placeholder="Please Enter The Banner Sort" value="{{$result->sort}}" autocomplete="off"/>
 
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">上传</label>
-                                <div class="col-md-9">
-                                    <button type="button" class="layui-btn" id="banner-upload" style="float: left">上传图片</button>
-                                    <div class="layui-upload-list" style="margin-top: -10px;margin-left: 25px;float: left">
-                                        <img style="width: 180px;height: 120px" src="{{$res->img}}" class="layui-upload-img" id="demo1">
-                                        <p id="demoText"></p>
-                                    </div>
-                                    <input type="hidden" id="banner_img" name="banner_img" value="{{$res->img}}">
 
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-4">
